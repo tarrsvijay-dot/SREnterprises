@@ -4,8 +4,7 @@ function Home() {
   return (
     <div className="home">
 
-      {/* HERO / DASHBOARD */}
-
+      {/* HERO */}
       <section className="hero-section" id="dashboard">
 
         <div className="hero-left">
@@ -15,15 +14,14 @@ function Home() {
           </div>
 
           <h1>
-            Make Your Home
+            Upgrade Your Home.
             <br />
-            <span>Better.</span>
+            <span>Save More.</span>
           </h1>
 
           <p>
-            Discover quality home appliances at great prices.
-            Trusted brands, reliable products and better value
-            for your home.
+            Discover quality appliances and electronics
+            from trusted brands at great prices.
           </p>
 
           <div className="hero-actions">
@@ -37,9 +35,8 @@ function Home() {
           </div>
 
           <div className="hero-stats">
-
             <div>
-              <strong>10+</strong>
+              <strong>4+</strong>
               <span>Categories</span>
             </div>
 
@@ -49,50 +46,41 @@ function Home() {
             </div>
 
             <div>
-              <strong>100%</strong>
-              <span>Customer Focus</span>
+              <strong>Best</strong>
+              <span>Prices</span>
             </div>
-
           </div>
 
         </div>
 
 
+        {/* HERO IMAGE */}
         <div className="hero-right">
 
-          <div className="hero-background-circle"></div>
+          <div className="hero-glow"></div>
 
-          <div className="appliance-display">
+          <div className="hero-product-card">
 
-            <div className="display-top">
-              <span>SR ENTERPRISES</span>
-              <span>QUALITY</span>
+            <div className="hero-product-label">
+              FEATURED
             </div>
 
-            <div className="display-icon">
-              🏠
-            </div>
+            <img
+              src="/images/AC.png"
+              alt="Air Conditioner"
+            />
 
-            <div className="display-bottom">
-              <strong>HOME APPLIANCES</strong>
-              <span>Smart choices for better living</span>
+            <div className="hero-product-info">
+              <span>HOME APPLIANCES</span>
+              <strong>Cooler Living Starts Here.</strong>
             </div>
 
           </div>
 
-
-          <div className="discount-floating">
-
+          <div className="hero-offer">
             <small>LIMITED OFFER</small>
-
-            <strong>
-              UP TO
-              <br />
-              30% OFF
-            </strong>
-
-            <span>Selected Products</span>
-
+            <strong>UP TO 30% OFF</strong>
+            <span>Selected products</span>
           </div>
 
         </div>
@@ -101,45 +89,37 @@ function Home() {
 
 
       {/* TRUST STRIP */}
-
       <section className="trust-strip">
 
         <div>
           <span className="trust-icon">✓</span>
-
           <div>
             <strong>Trusted Products</strong>
             <p>Quality appliances</p>
           </div>
         </div>
 
-
         <div>
           <span className="trust-icon">₹</span>
-
           <div>
             <strong>Great Prices</strong>
             <p>Value for money</p>
           </div>
         </div>
 
-
         <div>
           <span className="trust-icon">★</span>
-
           <div>
             <strong>Reliable Service</strong>
             <p>Customer first</p>
           </div>
         </div>
 
-
         <div>
           <span className="trust-icon">⚡</span>
-
           <div>
-            <strong>Latest Models</strong>
-            <p>Modern appliances</p>
+            <strong>Latest Products</strong>
+            <p>Modern technology</p>
           </div>
         </div>
 
@@ -147,7 +127,6 @@ function Home() {
 
 
       {/* DISCOUNTS */}
-
       <section className="discount-section" id="discounts">
 
         <div className="section-heading">
@@ -158,13 +137,13 @@ function Home() {
             <h2>
               Save More on Your
               <br />
-              Next Appliance.
+              Next Purchase.
             </h2>
           </div>
 
           <p>
-            Check out our latest appliance offers
-            and discover great value for your home.
+            Check out our latest offers and discover
+            great value for your home.
           </p>
 
         </div>
@@ -174,25 +153,24 @@ function Home() {
 
           <div className="offer-card blue">
 
-            <div className="offer-icon">
-              ❄️
-            </div>
+            <img
+              src="/images/fridge.png"
+              alt="Refrigerator"
+            />
 
             <div className="offer-content">
-
               <small>UP TO 20% OFF</small>
 
               <h3>Refrigerators</h3>
 
               <p>
-                Keep your food fresh with modern
-                and energy-efficient refrigerators.
+                Modern refrigerators for a
+                smarter and fresher home.
               </p>
 
               <a href="#explore">
                 Explore →
               </a>
-
             </div>
 
           </div>
@@ -200,12 +178,12 @@ function Home() {
 
           <div className="offer-card green">
 
-            <div className="offer-icon">
-              🧺
-            </div>
+            <img
+              src="/images/washing.png"
+              alt="Washing Machine"
+            />
 
             <div className="offer-content">
-
               <small>UP TO 25% OFF</small>
 
               <h3>Washing Machines</h3>
@@ -218,7 +196,6 @@ function Home() {
               <a href="#explore">
                 Explore →
               </a>
-
             </div>
 
           </div>
@@ -226,25 +203,24 @@ function Home() {
 
           <div className="offer-card purple">
 
-            <div className="offer-icon">
-              📺
-            </div>
+            <img
+              src="/images/iphone.png"
+              alt="iPhone"
+            />
 
             <div className="offer-content">
+              <small>SPECIAL DEALS</small>
 
-              <small>UP TO 30% OFF</small>
-
-              <h3>Televisions</h3>
+              <h3>Mobiles & Electronics</h3>
 
               <p>
-                Upgrade your entertainment
-                experience with smart TVs.
+                Explore the latest electronics
+                and smart devices.
               </p>
 
               <a href="#explore">
                 Explore →
               </a>
-
             </div>
 
           </div>
@@ -255,7 +231,6 @@ function Home() {
 
 
       {/* EXPLORE */}
-
       <section className="explore-section" id="explore">
 
         <div className="section-center">
@@ -263,12 +238,12 @@ function Home() {
           <span>EXPLORE OUR RANGE</span>
 
           <h2>
-            Everything Your Home Needs.
+            Find What You Need.
           </h2>
 
           <p>
-            Browse our major appliance categories
-            and find the right product for your home.
+            Explore our collection of appliances
+            and electronics.
           </p>
 
         </div>
@@ -276,82 +251,114 @@ function Home() {
 
         <div className="category-grid">
 
-          <div className="category-item refrigerator-item">
+          {/* FRIDGE */}
+          <div className="category-item">
 
-            <div className="category-emoji">
-              ❄️
+            <div className="category-image">
+              <img
+                src="/images/fridge.png"
+                alt="Refrigerator"
+              />
             </div>
 
-            <h3>Refrigerators</h3>
+            <div className="category-content">
+              <span>HOME APPLIANCE</span>
 
-            <p>
-              Single door, double door
-              and more.
-            </p>
+              <h3>Refrigerators</h3>
 
-            <a href="#contact">
-              Enquire →
-            </a>
+              <p>
+                Keep your food fresh with
+                modern refrigerators.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+            </div>
 
           </div>
 
 
-          <div className="category-item washing-item">
+          {/* WASHING */}
+          <div className="category-item">
 
-            <div className="category-emoji">
-              🧺
+            <div className="category-image">
+              <img
+                src="/images/washing.png"
+                alt="Washing Machine"
+              />
             </div>
 
-            <h3>Washing Machines</h3>
+            <div className="category-content">
+              <span>HOME APPLIANCE</span>
 
-            <p>
-              Front load and top load
-              models.
-            </p>
+              <h3>Washing Machines</h3>
 
-            <a href="#contact">
-              Enquire →
-            </a>
+              <p>
+                Powerful and efficient washing
+                solutions.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+            </div>
 
           </div>
 
 
-          <div className="category-item tv-item">
+          {/* AC */}
+          <div className="category-item">
 
-            <div className="category-emoji">
-              📺
+            <div className="category-image">
+              <img
+                src="/images/AC.png"
+                alt="Air Conditioner"
+              />
             </div>
 
-            <h3>Televisions</h3>
+            <div className="category-content">
+              <span>HOME APPLIANCE</span>
 
-            <p>
-              Smart TVs and entertainment
-              systems.
-            </p>
+              <h3>Air Conditioners</h3>
 
-            <a href="#contact">
-              Enquire →
-            </a>
+              <p>
+                Stay comfortable with
+                modern cooling technology.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+            </div>
 
           </div>
 
 
-          <div className="category-item kitchen-item">
+          {/* IPHONE */}
+          <div className="category-item">
 
-            <div className="category-emoji">
-              🍳
+            <div className="category-image">
+              <img
+                src="/images/iphone.png"
+                alt="iPhone"
+              />
             </div>
 
-            <h3>Kitchen Appliances</h3>
+            <div className="category-content">
+              <span>ELECTRONICS</span>
 
-            <p>
-              Appliances for a smarter
-              kitchen.
-            </p>
+              <h3>Smartphones</h3>
 
-            <a href="#contact">
-              Enquire →
-            </a>
+              <p>
+                Latest smartphones and
+                smart devices.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+            </div>
 
           </div>
 
@@ -360,13 +367,12 @@ function Home() {
       </section>
 
 
-      {/* SHOP PREVIEW */}
-
+      {/* SHOP */}
       <section className="shop-preview" id="shop">
 
         <div className="shop-image-placeholder">
 
-          <div>
+          <div className="shop-icon">
             🏪
           </div>
 
@@ -375,7 +381,7 @@ function Home() {
           </strong>
 
           <span>
-            Your Shop Photo
+            Shop image coming soon
           </span>
 
         </div>
@@ -383,9 +389,7 @@ function Home() {
 
         <div className="shop-preview-content">
 
-          <span>
-            VISIT OUR STORE
-          </span>
+          <span>VISIT OUR STORE</span>
 
           <h2>
             See It.
@@ -396,13 +400,14 @@ function Home() {
           </h2>
 
           <p>
-            Visit SR Enterprises and explore our range
-            of appliances in person. Our team is ready
-            to help you choose the right product.
+            Visit SR Enterprises and explore our
+            range of appliances and electronics.
+            Our team is ready to help you find
+            the right product.
           </p>
 
           <a href="#contact">
-            Get Directions →
+            Contact Us →
           </a>
 
         </div>
@@ -411,7 +416,6 @@ function Home() {
 
 
       {/* CONTACT */}
-
       <section className="contact-section" id="contact">
 
         <div className="section-center">
@@ -423,7 +427,7 @@ function Home() {
           </h2>
 
           <p>
-            Have a question about an appliance?
+            Have a question about a product?
             Contact SR Enterprises.
           </p>
 
@@ -440,7 +444,6 @@ function Home() {
             <p>
               Your phone number
             </p>
-
           </div>
 
 
@@ -452,7 +455,6 @@ function Home() {
             <p>
               your@email.com
             </p>
-
           </div>
 
 
@@ -464,7 +466,6 @@ function Home() {
             <p>
               Your shop address
             </p>
-
           </div>
 
         </div>
