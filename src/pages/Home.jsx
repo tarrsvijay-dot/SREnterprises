@@ -1,8 +1,75 @@
+import { useState } from "react";
 import "../App.css";
+import Cart from "../components/cart/Cart";
 
 function Home() {
+  const [cart, setCart] = useState([]);
+
+  const products = [
+    {
+      id: 1,
+      name: "Refrigerator",
+      category: "HOME APPLIANCE",
+      description: "Keep your food fresh with modern refrigerators.",
+      price: 25000,
+      image: "/images/fridge.png",
+    },
+    {
+      id: 2,
+      name: "Washing Machine",
+      category: "HOME APPLIANCE",
+      description: "Powerful and efficient washing solutions.",
+      price: 22000,
+      image: "/images/washing.png",
+    },
+    {
+      id: 3,
+      name: "Air Conditioner",
+      category: "HOME APPLIANCE",
+      description: "Stay comfortable with modern cooling technology.",
+      price: 35000,
+      image: "/images/AC.png",
+    },
+    {
+      id: 4,
+      name: "Smartphone",
+      category: "ELECTRONICS",
+      description: "Latest smartphones and smart devices.",
+      price: 45000,
+      image: "/images/iphone.png",
+    },
+  ];
+
+  const addToCart = (product) => {
+    const existingProduct = cart.find(
+      (item) => item.id === product.id
+    );
+
+    if (existingProduct) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+  const cartCount = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <div className="home">
+
+      {/* CART BAR */}
+      <div className="cart-bar">
+        🛒 Cart: {cartCount} item{cartCount !== 1 ? "s" : ""}
+      </div>
 
       {/* HERO */}
       <section className="hero-section" id="dashboard">
@@ -53,7 +120,6 @@ function Home() {
 
         </div>
 
-
         {/* HERO IMAGE */}
         <div className="hero-right">
 
@@ -86,7 +152,6 @@ function Home() {
         </div>
 
       </section>
-
 
       {/* TRUST STRIP */}
       <section className="trust-strip">
@@ -125,7 +190,6 @@ function Home() {
 
       </section>
 
-
       {/* DISCOUNTS */}
       <section className="discount-section" id="discounts">
 
@@ -147,7 +211,6 @@ function Home() {
           </p>
 
         </div>
-
 
         <div className="discount-cards">
 
@@ -175,7 +238,6 @@ function Home() {
 
           </div>
 
-
           <div className="offer-card green">
 
             <img
@@ -199,7 +261,6 @@ function Home() {
             </div>
 
           </div>
-
 
           <div className="offer-card purple">
 
@@ -229,7 +290,6 @@ function Home() {
 
       </section>
 
-
       {/* EXPLORE */}
       <section className="explore-section" id="explore">
 
@@ -248,124 +308,59 @@ function Home() {
 
         </div>
 
-
         <div className="category-grid">
 
-          {/* FRIDGE */}
-          <div className="category-item">
+          {products.map((product) => (
 
-            <div className="category-image">
-              <img
-                src="/images/fridge.png"
-                alt="Refrigerator"
-              />
+            <div className="category-item" key={product.id}>
+
+              <div className="category-image">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                />
+              </div>
+
+              <div className="category-content">
+
+                <span>{product.category}</span>
+
+                <h3>{product.name}</h3>
+
+                <p>
+                  {product.description}
+                </p>
+
+                <strong className="product-price">
+                  ₹{product.price.toLocaleString()}
+                </strong>
+
+                <button
+                  className="add-cart-button"
+                  onClick={() => addToCart(product)}
+                >
+                  🛒 Add to Cart
+                </button>
+
+              </div>
+
             </div>
 
-            <div className="category-content">
-              <span>HOME APPLIANCE</span>
-
-              <h3>Refrigerators</h3>
-
-              <p>
-                Keep your food fresh with
-                modern refrigerators.
-              </p>
-
-              <a href="#contact">
-                Enquire →
-              </a>
-            </div>
-
-          </div>
-
-
-          {/* WASHING */}
-          <div className="category-item">
-
-            <div className="category-image">
-              <img
-                src="/images/washing.png"
-                alt="Washing Machine"
-              />
-            </div>
-
-            <div className="category-content">
-              <span>HOME APPLIANCE</span>
-
-              <h3>Washing Machines</h3>
-
-              <p>
-                Powerful and efficient washing
-                solutions.
-              </p>
-
-              <a href="#contact">
-                Enquire →
-              </a>
-            </div>
-
-          </div>
-
-
-          {/* AC */}
-          <div className="category-item">
-
-            <div className="category-image">
-              <img
-                src="/images/AC.png"
-                alt="Air Conditioner"
-              />
-            </div>
-
-            <div className="category-content">
-              <span>HOME APPLIANCE</span>
-
-              <h3>Air Conditioners</h3>
-
-              <p>
-                Stay comfortable with
-                modern cooling technology.
-              </p>
-
-              <a href="#contact">
-                Enquire →
-              </a>
-            </div>
-
-          </div>
-
-
-          {/* IPHONE */}
-          <div className="category-item">
-
-            <div className="category-image">
-              <img
-                src="/images/iphone.png"
-                alt="iPhone"
-              />
-            </div>
-
-            <div className="category-content">
-              <span>ELECTRONICS</span>
-
-              <h3>Smartphones</h3>
-
-              <p>
-                Latest smartphones and
-                smart devices.
-              </p>
-
-              <a href="#contact">
-                Enquire →
-              </a>
-            </div>
-
-          </div>
+          ))}
 
         </div>
 
       </section>
 
+      {/* CART */}
+      <section id="cart">
+
+        <Cart
+          cart={cart}
+          setCart={setCart}
+        />
+
+      </section>
 
       {/* SHOP */}
       <section className="shop-preview" id="shop">
@@ -385,7 +380,6 @@ function Home() {
           </span>
 
         </div>
-
 
         <div className="shop-preview-content">
 
@@ -414,7 +408,6 @@ function Home() {
 
       </section>
 
-
       {/* CONTACT */}
       <section className="contact-section" id="contact">
 
@@ -433,7 +426,6 @@ function Home() {
 
         </div>
 
-
         <div className="contact-cards">
 
           <div>
@@ -446,7 +438,6 @@ function Home() {
             </p>
           </div>
 
-
           <div>
             <span>✉️</span>
 
@@ -457,14 +448,13 @@ function Home() {
             </p>
           </div>
 
-
           <div>
             <span>📍</span>
 
             <h3>Visit Us</h3>
 
             <p>
-              Your shop address
+              Shop address coming soon
             </p>
           </div>
 
