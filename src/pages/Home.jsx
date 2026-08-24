@@ -442,7 +442,7 @@ function Home() {
             <h3>Call Us</h3>
 
             <p>
-              Your phone number
+              9985954283
             </p>
           </div>
 
@@ -453,7 +453,7 @@ function Home() {
             <h3>Email Us</h3>
 
             <p>
-              your@email.com
+              srenterprises72025@email.com
             </p>
           </div>
 
