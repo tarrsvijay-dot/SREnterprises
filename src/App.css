@@ -615,3 +615,29 @@ a {
     font-size: 42px;
   }
 }
+
+/* Disable text selection by default */
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* Product information can be selected */
+.category-item,
+.category-item h3,
+.category-item p,
+.category-item span,
+.category-item strong {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+}
+
+/* Buttons and links cannot be selected */
+button,
+a {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}

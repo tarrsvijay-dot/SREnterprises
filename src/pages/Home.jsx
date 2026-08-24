@@ -58,18 +58,8 @@ function Home() {
     }
   };
 
-  const cartCount = cart.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-
   return (
     <div className="home">
-
-      {/* CART BAR */}
-      <div className="cart-bar">
-        🛒 Cart: {cartCount} item{cartCount !== 1 ? "s" : ""}
-      </div>
 
       {/* HERO */}
       <section className="hero-section" id="dashboard">
