@@ -1,73 +1,64 @@
-import { useState } from "react";
 import "../App.css";
-import Cart from "../components/cart/Cart";
 
-function Home() {
-  const [cart, setCart] = useState([]);
-
-  const products = [
-    {
-      id: 1,
-      name: "Refrigerator",
-      category: "HOME APPLIANCE",
-      description: "Keep your food fresh with modern refrigerators.",
-      price: 25000,
-      image: "/images/fridge.png",
-    },
-    {
-      id: 2,
-      name: "Washing Machine",
-      category: "HOME APPLIANCE",
-      description: "Powerful and efficient washing solutions.",
-      price: 22000,
-      image: "/images/washing.png",
-    },
-    {
-      id: 3,
-      name: "Air Conditioner",
-      category: "HOME APPLIANCE",
-      description: "Stay comfortable with modern cooling technology.",
-      price: 35000,
-      image: "/images/AC.png",
-    },
-    {
-      id: 4,
-      name: "Smartphone",
-      category: "ELECTRONICS",
-      description: "Latest smartphones and smart devices.",
-      price: 45000,
-      image: "/images/iphone.png",
-    },
-  ];
-
-  const addToCart = (product) => {
-    const existingProduct = cart.find(
-      (item) => item.id === product.id
-    );
-
-    if (existingProduct) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
-
+function Home({ user, onLogout }) {
   return (
     <div className="home">
 
-      {/* HERO */}
-      <section className="hero-section" id="dashboard">
+      {/* =========================
+          ACCOUNT HEADER
+      ========================== */}
+
+      <header className="account-header">
+
+        <div className="account-brand">
+          SR ENTERPRISES
+        </div>
+
+        <div className="account-user">
+
+          <div className="user-avatar">
+            {user?.name
+              ? user.name.charAt(0).toUpperCase()
+              : "U"}
+          </div>
+
+          <div className="user-info">
+
+            <strong>
+              {user?.name || "Customer"}
+            </strong>
+
+            <span>
+              {user?.email || ""}
+            </span>
+
+          </div>
+
+          <button
+            className="logout-button"
+            onClick={onLogout}
+          >
+            Logout
+          </button>
+
+        </div>
+
+      </header>
+
+
+      {/* =========================
+          HERO
+      ========================== */}
+
+      <section
+        className="hero-section"
+        id="dashboard"
+      >
 
         <div className="hero-left">
 
           <div className="hero-badge">
-            🔥 SPECIAL OFFERS AVAILABLE
+            SPECIAL OFFERS AVAILABLE
           </div>
 
           <h1>
@@ -77,21 +68,31 @@ function Home() {
           </h1>
 
           <p>
-            Discover quality appliances and electronics
-            from trusted brands at great prices.
+            Discover quality appliances and
+            electronics from trusted brands
+            at great prices.
           </p>
 
           <div className="hero-actions">
-            <a href="#explore" className="hero-primary">
+
+            <a
+              href="#explore"
+              className="hero-primary"
+            >
               Explore Products →
             </a>
 
-            <a href="#discounts" className="hero-secondary">
+            <a
+              href="#discounts"
+              className="hero-secondary"
+            >
               View Discounts
             </a>
+
           </div>
 
           <div className="hero-stats">
+
             <div>
               <strong>4+</strong>
               <span>Categories</span>
@@ -106,11 +107,14 @@ function Home() {
               <strong>Best</strong>
               <span>Prices</span>
             </div>
+
           </div>
 
         </div>
 
+
         {/* HERO IMAGE */}
+
         <div className="hero-right">
 
           <div className="hero-glow"></div>
@@ -127,82 +131,169 @@ function Home() {
             />
 
             <div className="hero-product-info">
-              <span>HOME APPLIANCES</span>
-              <strong>Cooler Living Starts Here.</strong>
+
+              <span>
+                HOME APPLIANCES
+              </span>
+
+              <strong>
+                Cooler Living Starts Here.
+              </strong>
+
             </div>
 
           </div>
 
           <div className="hero-offer">
-            <small>LIMITED OFFER</small>
-            <strong>UP TO 30% OFF</strong>
-            <span>Selected products</span>
+
+            <small>
+              LIMITED OFFER
+            </small>
+
+            <strong>
+              UP TO 30% OFF
+            </strong>
+
+            <span>
+              Selected products
+            </span>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* TRUST STRIP */}
+
+      {/* =========================
+          TRUST STRIP
+      ========================== */}
+
       <section className="trust-strip">
 
         <div>
-          <span className="trust-icon">✓</span>
+
+          <span className="trust-icon">
+            ✓
+          </span>
+
           <div>
-            <strong>Trusted Products</strong>
-            <p>Quality appliances</p>
+
+            <strong>
+              Trusted Products
+            </strong>
+
+            <p>
+              Quality appliances
+            </p>
+
           </div>
+
         </div>
 
-        <div>
-          <span className="trust-icon">₹</span>
-          <div>
-            <strong>Great Prices</strong>
-            <p>Value for money</p>
-          </div>
-        </div>
 
         <div>
-          <span className="trust-icon">★</span>
+
+          <span className="trust-icon">
+            ₹
+          </span>
+
           <div>
-            <strong>Reliable Service</strong>
-            <p>Customer first</p>
+
+            <strong>
+              Great Prices
+            </strong>
+
+            <p>
+              Value for money
+            </p>
+
           </div>
+
         </div>
 
+
         <div>
-          <span className="trust-icon">⚡</span>
+
+          <span className="trust-icon">
+            ★
+          </span>
+
           <div>
-            <strong>Latest Products</strong>
-            <p>Modern technology</p>
+
+            <strong>
+              Reliable Service
+            </strong>
+
+            <p>
+              Customer first
+            </p>
+
           </div>
+
+        </div>
+
+
+        <div>
+
+          <span className="trust-icon">
+            ⚡
+          </span>
+
+          <div>
+
+            <strong>
+              Latest Products
+            </strong>
+
+            <p>
+              Modern technology
+            </p>
+
+          </div>
+
         </div>
 
       </section>
 
-      {/* DISCOUNTS */}
-      <section className="discount-section" id="discounts">
+
+      {/* =========================
+          DISCOUNTS
+      ========================== */}
+
+      <section
+        className="discount-section"
+        id="discounts"
+      >
 
         <div className="section-heading">
 
           <div>
-            <span>OFFERS & DEALS</span>
+
+            <span>
+              OFFERS & DEALS
+            </span>
 
             <h2>
               Save More on Your
               <br />
               Next Purchase.
             </h2>
+
           </div>
 
           <p>
-            Check out our latest offers and discover
-            great value for your home.
+            Check out our latest offers and
+            discover great value for your home.
           </p>
 
         </div>
 
+
         <div className="discount-cards">
+
+
+          {/* REFRIGERATOR */}
 
           <div className="offer-card blue">
 
@@ -212,9 +303,14 @@ function Home() {
             />
 
             <div className="offer-content">
-              <small>UP TO 20% OFF</small>
 
-              <h3>Refrigerators</h3>
+              <small>
+                UP TO 20% OFF
+              </small>
+
+              <h3>
+                Refrigerators
+              </h3>
 
               <p>
                 Modern refrigerators for a
@@ -224,9 +320,13 @@ function Home() {
               <a href="#explore">
                 Explore →
               </a>
+
             </div>
 
           </div>
+
+
+          {/* WASHING MACHINE */}
 
           <div className="offer-card green">
 
@@ -236,9 +336,14 @@ function Home() {
             />
 
             <div className="offer-content">
-              <small>UP TO 25% OFF</small>
 
-              <h3>Washing Machines</h3>
+              <small>
+                UP TO 25% OFF
+              </small>
+
+              <h3>
+                Washing Machines
+              </h3>
 
               <p>
                 Powerful washing performance
@@ -248,9 +353,13 @@ function Home() {
               <a href="#explore">
                 Explore →
               </a>
+
             </div>
 
           </div>
+
+
+          {/* MOBILE */}
 
           <div className="offer-card purple">
 
@@ -260,9 +369,14 @@ function Home() {
             />
 
             <div className="offer-content">
-              <small>SPECIAL DEALS</small>
 
-              <h3>Mobiles & Electronics</h3>
+              <small>
+                SPECIAL DEALS
+              </small>
+
+              <h3>
+                Mobiles & Electronics
+              </h3>
 
               <p>
                 Explore the latest electronics
@@ -272,6 +386,7 @@ function Home() {
               <a href="#explore">
                 Explore →
               </a>
+
             </div>
 
           </div>
@@ -280,80 +395,197 @@ function Home() {
 
       </section>
 
-      {/* EXPLORE */}
-      <section className="explore-section" id="explore">
+
+      {/* =========================
+          EXPLORE
+      ========================== */}
+
+      <section
+        className="explore-section"
+        id="explore"
+      >
 
         <div className="section-center">
 
-          <span>EXPLORE OUR RANGE</span>
+          <span>
+            EXPLORE OUR RANGE
+          </span>
 
           <h2>
             Find What You Need.
           </h2>
 
           <p>
-            Explore our collection of appliances
-            and electronics.
+            Explore our collection of
+            appliances and electronics.
           </p>
 
         </div>
 
+
         <div className="category-grid">
 
-          {products.map((product) => (
 
-            <div className="category-item" key={product.id}>
+          {/* REFRIGERATOR */}
 
-              <div className="category-image">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                />
-              </div>
+          <div className="category-item">
 
-              <div className="category-content">
+            <div className="category-image">
 
-                <span>{product.category}</span>
-
-                <h3>{product.name}</h3>
-
-                <p>
-                  {product.description}
-                </p>
-
-                <strong className="product-price">
-                  ₹{product.price.toLocaleString()}
-                </strong>
-
-                <button
-                  className="add-cart-button"
-                  onClick={() => addToCart(product)}
-                >
-                  🛒 Add to Cart
-                </button>
-
-              </div>
+              <img
+                src="/images/fridge.png"
+                alt="Refrigerator"
+              />
 
             </div>
 
-          ))}
+            <div className="category-content">
+
+              <span>
+                HOME APPLIANCE
+              </span>
+
+              <h3>
+                Refrigerators
+              </h3>
+
+              <p>
+                Keep your food fresh with
+                modern refrigerators.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+
+            </div>
+
+          </div>
+
+
+          {/* WASHING MACHINE */}
+
+          <div className="category-item">
+
+            <div className="category-image">
+
+              <img
+                src="/images/washing.png"
+                alt="Washing Machine"
+              />
+
+            </div>
+
+            <div className="category-content">
+
+              <span>
+                HOME APPLIANCE
+              </span>
+
+              <h3>
+                Washing Machines
+              </h3>
+
+              <p>
+                Powerful and efficient
+                washing solutions.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+
+            </div>
+
+          </div>
+
+
+          {/* AIR CONDITIONER */}
+
+          <div className="category-item">
+
+            <div className="category-image">
+
+              <img
+                src="/images/AC.png"
+                alt="Air Conditioner"
+              />
+
+            </div>
+
+            <div className="category-content">
+
+              <span>
+                HOME APPLIANCE
+              </span>
+
+              <h3>
+                Air Conditioners
+              </h3>
+
+              <p>
+                Stay comfortable with modern
+                cooling technology.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+
+            </div>
+
+          </div>
+
+
+          {/* SMARTPHONES */}
+
+          <div className="category-item">
+
+            <div className="category-image">
+
+              <img
+                src="/images/iphone.png"
+                alt="iPhone"
+              />
+
+            </div>
+
+            <div className="category-content">
+
+              <span>
+                ELECTRONICS
+              </span>
+
+              <h3>
+                Smartphones
+              </h3>
+
+              <p>
+                Latest smartphones and
+                smart devices.
+              </p>
+
+              <a href="#contact">
+                Enquire →
+              </a>
+
+            </div>
+
+          </div>
 
         </div>
 
       </section>
 
-      {/* CART */}
-      <section id="cart">
 
-        <Cart
-          cart={cart}
-          setCart={setCart}
-        />
+      {/* =========================
+          SHOP
+      ========================== */}
 
-      </section>
-
-      {/* SHOP */}
-      <section className="shop-preview" id="shop">
+      <section
+        className="shop-preview"
+        id="shop"
+      >
 
         <div className="shop-image-placeholder">
 
@@ -371,9 +603,12 @@ function Home() {
 
         </div>
 
+
         <div className="shop-preview-content">
 
-          <span>VISIT OUR STORE</span>
+          <span>
+            VISIT OUR STORE
+          </span>
 
           <h2>
             See It.
@@ -384,10 +619,10 @@ function Home() {
           </h2>
 
           <p>
-            Visit SR Enterprises and explore our
-            range of appliances and electronics.
-            Our team is ready to help you find
-            the right product.
+            Visit SR Enterprises and explore
+            our range of appliances and
+            electronics. Our team is ready
+            to help you find the right product.
           </p>
 
           <a href="#contact">
@@ -398,12 +633,21 @@ function Home() {
 
       </section>
 
-      {/* CONTACT */}
-      <section className="contact-section" id="contact">
+
+      {/* =========================
+          CONTACT
+      ========================== */}
+
+      <section
+        className="contact-section"
+        id="contact"
+      >
 
         <div className="section-center">
 
-          <span>GET IN TOUCH</span>
+          <span>
+            GET IN TOUCH
+          </span>
 
           <h2>
             We're Here to Help.
@@ -416,41 +660,105 @@ function Home() {
 
         </div>
 
+
         <div className="contact-cards">
 
-          <div>
-            <span>📞</span>
 
-            <h3>Call Us</h3>
+          {/* PHONE */}
+
+          <a
+            href="tel:9985954283"
+            className="contact-card"
+          >
+
+            <span>
+              📞
+            </span>
+
+            <h3>
+              Call Us
+            </h3>
 
             <p>
               9985954283
             </p>
-          </div>
 
-          <div>
-            <span>✉️</span>
+          </a>
 
-            <h3>Email Us</h3>
+
+          {/* EMAIL */}
+
+          <a
+            href="mailto:srenterprises72025@email.com"
+            className="contact-card"
+          >
+
+            <span>
+              ✉
+            </span>
+
+            <h3>
+              Email Us
+            </h3>
 
             <p>
               srenterprises72025@email.com
             </p>
-          </div>
 
-          <div>
-            <span>📍</span>
+          </a>
 
-            <h3>Visit Us</h3>
+
+          {/* ADDRESS */}
+
+          <div className="contact-card">
+
+            <span>
+              📍
+            </span>
+
+            <h3>
+              Visit Us
+            </h3>
 
             <p>
-              Shop address coming soon
+              Your shop address
             </p>
+
           </div>
 
         </div>
 
       </section>
+
+
+      {/* =========================
+          FOOTER
+      ========================== */}
+
+      <footer className="site-footer">
+
+        <div>
+
+          <strong>
+            SR ENTERPRISES
+          </strong>
+
+          <p>
+            Quality appliances and
+            electronics at great prices.
+          </p>
+
+        </div>
+
+        <div>
+
+          <span>
+            © 2026 SR Enterprises
+          </span>
+
+        </div>
+
+      </footer>
 
     </div>
   );
