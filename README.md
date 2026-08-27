@@ -2,13 +2,14 @@
 
 A full-stack e-commerce platform for an appliance retail business, built using React, Java Spring Boot, and MySQL.
 
-
-
-
-
-
-
-\
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react\&logoColor=white)](https://react.dev/)
+[![Java](https://img.shields.io/badge/Backend-Java-ED8B00?logo=openjdk\&logoColor=white)](https://www.java.com/)
+[![Spring Boot](https://img.shields.io/badge/Framework-Spring%20Boot-6DB33F?logo=springboot\&logoColor=white)](https://spring.io/projects/spring-boot)
+[![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?logo=mysql\&logoColor=white)](https://www.mysql.com/)
+[![Spring Security](https://img.shields.io/badge/Security-Spring%20Security-6DB33F?logo=springsecurity\&logoColor=white)](https://spring.io/projects/spring-security)
+[![JWT](https://img.shields.io/badge/Auth-JWT-000000?logo=jsonwebtokens\&logoColor=white)](https://jwt.io/)
+[![Maven](https://img.shields.io/badge/Build-Maven-C71A36?logo=apachemaven\&logoColor=white)](https://maven.apache.org/)
+[![Git](https://img.shields.io/badge/Version%20Control-Git-F05032?logo=git\&logoColor=white)](https://git-scm.com/)
 
 ## Overview
 
@@ -49,7 +50,8 @@ The application focuses on user authentication, product management, shopping car
 * Git
 * GitHub
 * Postman
-* IntelliJ IDEA / VS Code
+* IntelliJ IDEA
+* Visual Studio Code
 
 ## Features
 
@@ -141,7 +143,7 @@ Spring Boot REST API
 
 ## Database Design
 
-The application will use a relational SQL database.
+The application uses a relational SQL database.
 
 ### Main Entities
 
@@ -198,14 +200,14 @@ Relationships between entities will be implemented using JPA and Hibernate.
 
 ## REST API
 
-Authentication endpoints will include:
+### Authentication
 
 ```text
 POST /api/auth/register
 POST /api/auth/login
 ```
 
-Product endpoints will include:
+### Products
 
 ```text
 GET    /api/products
@@ -215,7 +217,7 @@ PUT    /api/products/{id}
 DELETE /api/products/{id}
 ```
 
-Order endpoints will include:
+### Orders
 
 ```text
 GET  /api/orders
@@ -223,7 +225,7 @@ GET  /api/orders/{id}
 POST /api/orders
 ```
 
-Additional endpoints will be added as development progresses.
+Additional endpoints will be added as the application develops.
 
 ## Project Goals
 
@@ -236,7 +238,8 @@ This project is intended to provide practical experience in:
 * REST API development
 * Spring Security
 * JWT authentication
-* SQL and relational database design
+* SQL
+* Relational database design
 * JPA and Hibernate
 * Object-oriented programming
 * Git and GitHub
@@ -247,7 +250,7 @@ This project is intended to provide practical experience in:
 
 Currently under development.
 
-The project is being rebuilt from scratch, starting with the authentication system.
+The project is being rebuilt from scratch with a React frontend, Java Spring Boot backend, and MySQL database.
 
 ## License
 
