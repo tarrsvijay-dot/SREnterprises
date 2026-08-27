@@ -2,6 +2,22 @@
 
 A full-stack e-commerce platform for an appliance retail business, built using React, Java Spring Boot, and MySQL.
 
+
+
+
+
+
+
+\
+
+## Overview
+
+SR Enterprises is a full-stack e-commerce application designed for an appliance retail business.
+
+The project is being developed from scratch with a React frontend, Java Spring Boot backend, and MySQL database.
+
+The application focuses on user authentication, product management, shopping cart functionality, order management, and role-based access control.
+
 ## Tech Stack
 
 ### Frontend
@@ -21,18 +37,19 @@ A full-stack e-commerce platform for an appliance retail business, built using R
 * Hibernate
 * REST APIs
 * JWT Authentication
+* Maven
 
 ### Database
 
 * MySQL
 * SQL
 
-### Tools
+### Development Tools
 
 * Git
 * GitHub
-* Maven
 * Postman
+* IntelliJ IDEA / VS Code
 
 ## Features
 
@@ -45,18 +62,32 @@ A full-stack e-commerce platform for an appliance retail business, built using R
 * Logout
 * Role-based authorization
 * User and Admin roles
+* Protected API endpoints
 
-### E-Commerce
+### Product Management
 
 * Browse products
 * Search products
-* Filter and sort products
+* Filter products
+* Sort products
 * View product details
+* Product categories
+* Product stock management
+
+### Shopping Cart
+
 * Add products to cart
-* Update cart quantities
+* Update product quantities
 * Remove products from cart
+* View cart
+* Calculate total price
+
+### Orders
+
 * Place orders
 * View order history
+* View order details
+* Track order status
 
 ### Admin
 
@@ -65,7 +96,7 @@ A full-stack e-commerce platform for an appliance retail business, built using R
 * Update products
 * Delete products
 * Manage inventory
-* View orders
+* View customer orders
 * Update order status
 
 ## Project Architecture
@@ -90,7 +121,7 @@ SR Enterprises
     └── MySQL
 ```
 
-## Authentication Flow
+## Authentication Architecture
 
 ```text
 React Frontend
@@ -101,15 +132,18 @@ Spring Boot REST API
       │
       ├── Spring Security
       ├── Password Hashing
+      ├── Authentication
       └── JWT
       │
       ▼
     MySQL
 ```
 
-## Database
+## Database Design
 
-The main entities will include:
+The application will use a relational SQL database.
+
+### Main Entities
 
 ```text
 User
@@ -118,24 +152,103 @@ Order
 OrderItem
 ```
 
-Relationships will be implemented using JPA and Hibernate.
+### User
 
-## Project Goal
+```text
+id
+name
+email
+password
+role
+```
 
-The goal of SR Enterprises is to build a production-style full-stack application while developing practical skills in:
+### Product
 
-* React
-* Java
+```text
+id
+name
+description
+category
+price
+stock
+image_url
+```
+
+### Order
+
+```text
+id
+user_id
+total_amount
+status
+created_at
+```
+
+### OrderItem
+
+```text
+id
+order_id
+product_id
+quantity
+price
+```
+
+Relationships between entities will be implemented using JPA and Hibernate.
+
+## REST API
+
+Authentication endpoints will include:
+
+```text
+POST /api/auth/register
+POST /api/auth/login
+```
+
+Product endpoints will include:
+
+```text
+GET    /api/products
+GET    /api/products/{id}
+POST   /api/products
+PUT    /api/products/{id}
+DELETE /api/products/{id}
+```
+
+Order endpoints will include:
+
+```text
+GET  /api/orders
+GET  /api/orders/{id}
+POST /api/orders
+```
+
+Additional endpoints will be added as development progresses.
+
+## Project Goals
+
+This project is intended to provide practical experience in:
+
+* Full-stack development
+* React development
+* Java programming
 * Spring Boot
-* SQL
 * REST API development
-* Authentication and Authorization
-* Database design
+* Spring Security
+* JWT authentication
+* SQL and relational database design
+* JPA and Hibernate
+* Object-oriented programming
 * Git and GitHub
 * Software architecture
+* API testing
 
-## Status
+## Current Status
 
 Currently under development.
 
-The project is being rebuilt from scratch with a React frontend, Java Spring Boot backend, and MySQL database.
+The project is being rebuilt from scratch, starting with the authentication system.
+
+## License
+
+This project is developed for educational and portfolio purposes.
